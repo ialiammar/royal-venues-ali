@@ -8,7 +8,7 @@ export default function AdminPanel() {
   // --- THE VAULT LOCK ---
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [passcode, setPasscode] = useState("");
-  const SECRET_KEY = "ZNBALI"; // <-- CHANGE THIS TO YOUR SECRET PASSWORD
+  const SECRET_KEY = "51214"; // <-- CHANGE THIS TO YOUR SECRET PASSWORD
 
   const [pendingVenues, setPendingVenues] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);

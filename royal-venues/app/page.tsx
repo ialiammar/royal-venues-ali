@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { supabase } from "./lib/supabase"; 
+import NavModals from "./components/NavModals"; // <--- Imported the interactive buttons!
 
 // --- THE HOMEPAGE SEO ENGINE ---
 export const metadata = {
@@ -29,13 +30,10 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
 
   // 4. THE SORTING ENGINE
   if (sort === 'asc') {
-    // Low to High
     dbQuery = dbQuery.order('starting_price', { ascending: true });
   } else if (sort === 'desc') {
-    // High to Low
     dbQuery = dbQuery.order('starting_price', { ascending: false });
   } else {
-    // Default: Newest listings first
     dbQuery = dbQuery.order('created_at', { ascending: false });
   }
 
@@ -58,8 +56,10 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
         <div className="text-xl md:text-2xl font-bold tracking-widest text-[#D4AF37] uppercase">
           Royal <span className="text-[#F8F6F0]">Venues</span>
         </div>
-        <Link href="/about">About Us</Link>
-<Link href="/contact">Contact</Link>
+        
+        {/* --- THE INTERACTIVE MODALS INJECTED HERE --- */}
+        <NavModals />
+
         <Link 
           href="/login" 
           className="text-[10px] md:text-sm px-4 py-2 md:px-6 md:py-2.5 bg-gradient-to-r from-[#D4AF37] to-[#B8962E] text-[#4A000F] font-bold rounded shadow-lg hover:shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all uppercase tracking-wider"
@@ -175,7 +175,6 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
 
                     <div className="flex flex-col gap-1.5 md:gap-2 mb-3 md:mb-6 flex-grow">
                       
-                      {/* --- THE FIX: RATING & LIVE VIEWS PERFECTLY ALIGNED --- */}
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-1 md:gap-2">
                           <span className="text-[#D4AF37] text-[10px] md:text-sm tracking-widest">★★★★★</span>
