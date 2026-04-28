@@ -58,6 +58,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
         <div className="text-xl md:text-2xl font-bold tracking-widest text-[#D4AF37] uppercase">
           Royal <span className="text-[#F8F6F0]">Venues</span>
         </div>
+        <Link href="/about">About Us</Link>
+<Link href="/contact">Contact</Link>
         <Link 
           href="/login" 
           className="text-[10px] md:text-sm px-4 py-2 md:px-6 md:py-2.5 bg-gradient-to-r from-[#D4AF37] to-[#B8962E] text-[#4A000F] font-bold rounded shadow-lg hover:shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all uppercase tracking-wider"

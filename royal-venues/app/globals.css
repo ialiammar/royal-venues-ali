@@ -1,1 +1,13 @@
 @import "tailwindcss";
+/* Disable accidental mobile text selection and tap highlights */
+body {
+  -webkit-user-select: none; /* Safari/Chrome */
+  user-select: none; /* Standard */
+  -webkit-touch-callout: none; /* Disables the long-press popup on iOS */
+}
+
+/* Make sure users can still type in input fields! */
+input, textarea {
+  -webkit-user-select: auto;
+  user-select: auto;
+}
